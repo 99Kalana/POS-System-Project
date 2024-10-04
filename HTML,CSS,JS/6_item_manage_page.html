@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homepage of Kalana's Portfolio">
+    <meta name="keywords" content="Kalana's POS System">
+    <meta name="author" content="kalana-sachinthana">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/images/POS-Logo.png">
+    <link rel="stylesheet" href=../assets/styles/normalize.css>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Item Manage Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        /*side bar styles-----------------------------------*/
+        .sidebar {
+            background-color: #ffffff;
+            height: 100vh;
+            width: 80px;
+            transition: width 0.3s;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 0 8px 8px 0;
+            justify-content: center;
+
+            z-index: 10;
+        }
+        .sidebar.expanded{
+            width: 300px;
+        }
+        .sidebar .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.expanded .toggle-btn .menu-icon {
+            display: none;
+        }
+        .sidebar .toggle-btn .menu-icon {
+            display: block;
+        }
+        .sidebar.expanded .toggle-btn .close-icon {
+            display: block;
+        }
+        .close-icon {
+            display: none;
+        }
+        .menu-icon {
+            display: inline;
+        }
+        .sidebar .sidebar-header {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: none;
+        }
+        .sidebar.expanded .sidebar-header {
+            display: block;
+            margin-top: 60px;
+        }
+        .sidebar .sidebar-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar .sidebar-item {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.3s;
+            justify-content: center;
+            background-color: #f2f2f2; /* Light silver background */
+        }
+        .sidebar .sidebar-item:hover {
+            background-color: #e0e0e0;
+        }
+        .sidebar .sidebar-item img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .sidebar.expanded .sidebar-item {
+            justify-content: flex-start;
+        }
+        .sidebar.expanded .sidebar-item img {
+            margin-right: 10px;
+        }
+        .sidebar .sidebar-item span {
+            display: none;
+        }
+        .sidebar.expanded .sidebar-item span {
+            display: inline-block;
+        }
+        .sidebar .sidebar-footer {
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        .sidebar .sidebar-footer .sidebar-item {
+            color: #ff6b6b;
+        }
+        /* Active and Logout Color */
+        .sidebar-item.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .sidebar-item.logout.active {
+            background-color: #ff6b6b;
+            color: #ffffff;
+        }
+        /*side bar styles end-----------------------------------*/
+
+
+    </style>
+
+</head>
+<body>
+
+<!---------------------------------------------------------------sidebar----------------------------------------------------------------------------------------------------->
+
+<div class="sidebar" id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span class="menu-icon">&#9776;</span> <!-- Hamburger icon -->
+        <span class="close-icon">&#x276E;</span> <!-- Left arrow for expanded state -->
+    </div>
+    <div class="sidebar-header"> Kalana's POS System</div>
+
+    <div class="sidebar-content">
+        <a href="4_homepage.html" class="sidebar-item" onclick="activateItem(this)">
+            <img src="../assets/images/icons/homepage-sidebar-icons/icons8-home-50.png" alt="Homepage" style="height: 38px; width: 38px;">
+            <span>Homepage</span>
+        </a>
+        <a href="5_customer_manage_page.html" class="sidebar-item" onclick="activateItem(this)">
+            <img src="../assets/images/icons/homepage-sidebar-icons/icons8-customer-50.png" alt="Customer Manage" style="height: 38px; width: 38px;">
+            <span>Customer Manage</span>
+        </a>
+        <a href="6_item_manage_page.html" class="sidebar-item" onclick="activateItem(this)">
+            <img src="../assets/images/icons/homepage-sidebar-icons/icons8-box-64.png" alt="Item Manage" style="height: 38px; width: 38px;">
+            <span>Item Manage</span>
+        </a>
+        <a href="7_order_manage_page.html" class="sidebar-item" onclick="activateItem(this)">
+            <img src="../assets/images/icons/homepage-sidebar-icons/icons8-moleskine-48.png" alt="Order Manage" style="height: 38px; width: 38px;">
+            <span>Order Manage</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <a href="1_login_page.html" class="sidebar-item logout" onclick="activateItem(this)">
+            <img src="../assets/images/icons/homepage-sidebar-icons/icons8-logout-50.png" alt="Logout" style="height: 30px; width: 30px;">
+            <span>Logout</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('expanded');
+    }
+
+    function activateItem(element) {
+        // Remove active class from all items
+        const items = document.querySelectorAll('.sidebar-item');
+        items.forEach(item => item.classList.remove('active'));
+
+        // Add active class to clicked item
+        element.classList.add('active');
+    }
+</script>
+
+<!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
+
+<!-- Item Page Content -->
+<div class="content position-relative p-4">
+    <!-- Header -->
+    <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Item Manage</h1>
+
+    <!-- Item Form -->
+    <form class="mt-5 ">
+        <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
+            <!-- Item ID -->
+            <div class="col-md-3">
+                <label for="itemId" class="form-label fw-medium" style="font-size: 18px;">Item ID</label>
+                <input type="text" class="form-control" id="itemId" placeholder="Item ID">
+            </div>
+            <!-- Item Name -->
+            <div class="col-md-3">
+                <label for="itemName" class="form-label fw-medium" style="font-size: 18px;">Item Name</label>
+                <input type="text" class="form-control" id="itemName" placeholder="Item Name">
+            </div>
+            <!-- Item Type -->
+            <div class="col-md-3">
+                <label for="itemType" class="form-label fw-medium" style="font-size: 18px;">Item Type</label>
+                <input type="text" class="form-control" id="itemType" placeholder="Item Type">
+            </div>
+            <!-- Item Price -->
+            <div class="col-md-3">
+                <label for="itemPrice" class="form-label fw-medium" style="font-size: 18px;">Item Price</label>
+                <input type="text" class="form-control" id="itemPrice" placeholder="Item Price">
+            </div>
+            <!-- Item Description -->
+            <div class="col-md-3">
+                <label for="itemDescription" class="form-label fw-medium" style="font-size: 18px;">Item Description</label>
+                <input type="text" class="form-control" id="itemDescription" placeholder="Item Description">
+            </div>
+            <!-- Item QTY -->
+            <div class="col-md-3">
+                <label for="itemQty" class="form-label fw-medium" style="font-size: 18px;">Item QTY</label>
+                <input type="text" class="form-control" id="itemQty" placeholder="Item QTY">
+            </div>
+        </div>
+
+        <!-- CRUD Buttons -->
+        <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:max-content; height:max-content; top: 260px; left: 980px;">
+            <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+            <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+            <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+            <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
+        </div>
+    </form>
+</div>
+
+<!--table-->
+<div class="table position-relative">
+    <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+        <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Item Type</th>
+            <th>Item Price</th>
+            <th>Item Description</th>
+            <th>Item QTY</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
