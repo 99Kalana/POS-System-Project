@@ -196,90 +196,96 @@
 </script>
 
 <!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
-<!--Order History Content-->
-<div class="container position-relative">
-    <!-- Page Title -->
-    <h2 class="text-center position-absolute" style="width:max-content; height:max-content; top: 20px; left: 0; right: 0; margin: auto;">Order History</h2>
 
-    <!-- Order History Table -->
-    <div class="table position-absolute">
-        <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 100px;">
-            <thead class="table-primary">
-            <tr>
-                <th>Order ID</th>
-                <th>Date</th>
-                <th>Customer ID</th>
-                <th>Item ID</th>
-                <th>Item Price</th>
-                <th>Order QTY</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-danger btn-sm">DELETE</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-danger btn-sm">DELETE</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-danger btn-sm">DELETE</button></td>
-            </tr>
-            </tbody>
-        </table>
+
+<div class="orderhistorycommon">
+
+    <!--Order History Content-->
+    <div class="container position-relative">
+        <!-- Page Title -->
+        <h2 class="text-center position-absolute" style="width:max-content; height:max-content; top: 20px; left: 0; right: 0; margin: auto;">Order History</h2>
+
+        <!-- Order History Table -->
+        <div class="table position-absolute">
+            <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 100px;">
+                <thead class="table-primary">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Customer ID</th>
+                    <th>Item ID</th>
+                    <th>Item Price</th>
+                    <th>Order QTY</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Search Form -->
+        <form class="row g-3 position-absolute" style="width: fit-content; height: fit-content; top: 500px;">
+            <div class="col-md-4">
+                <label for="order-id" class="form-label">Order ID</label>
+                <input type="text" class="form-control" id="order-id" placeholder="Enter Order ID to search">
+            </div>
+            <div class="col-md-4">
+                <label for="date" class="form-label">Date</label>
+                <input type="text" class="form-control" id="date" placeholder="Date">
+            </div>
+            <div class="col-md-4">
+                <label for="customer-id" class="form-label">Customer ID</label>
+                <input type="text" class="form-control" id="customer-id" placeholder="Customer ID">
+            </div>
+            <div class="col-md-4">
+                <label for="item-id" class="form-label">Item ID</label>
+                <input type="text" class="form-control" id="item-id" placeholder="Item ID">
+            </div>
+            <div class="col-md-4">
+                <label for="item-price" class="form-label">Item Price</label>
+                <input type="text" class="form-control" id="item-price" placeholder="Item Price">
+            </div>
+            <div class="col-md-4">
+                <label for="order-qty" class="form-label">Order QTY</label>
+                <input type="number" class="form-control" id="order-qty" placeholder="Order QTY">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12 text-center position-absolute " style="width: fit-content; height: fit-content; top: 230px; left: 0; right: 0; margin: auto;">
+                <button type="reset" class="btn btn-primary">CLEAR</button>
+                <a href="7_order_manage_page.html" class="btn btn-danger">BACK TO ORDER MANAGE</a>
+            </div>
+        </form>
     </div>
 
-    <!-- Search Form -->
-    <form class="row g-3 position-absolute" style="width: fit-content; height: fit-content; top: 500px;">
-        <div class="col-md-4">
-            <label for="order-id" class="form-label">Order ID</label>
-            <input type="text" class="form-control" id="order-id" placeholder="Enter Order ID to search">
-        </div>
-        <div class="col-md-4">
-            <label for="date" class="form-label">Date</label>
-            <input type="text" class="form-control" id="date" placeholder="Date">
-        </div>
-        <div class="col-md-4">
-            <label for="customer-id" class="form-label">Customer ID</label>
-            <input type="text" class="form-control" id="customer-id" placeholder="Customer ID">
-        </div>
-        <div class="col-md-4">
-            <label for="item-id" class="form-label">Item ID</label>
-            <input type="text" class="form-control" id="item-id" placeholder="Item ID">
-        </div>
-        <div class="col-md-4">
-            <label for="item-price" class="form-label">Item Price</label>
-            <input type="text" class="form-control" id="item-price" placeholder="Item Price">
-        </div>
-        <div class="col-md-4">
-            <label for="order-qty" class="form-label">Order QTY</label>
-            <input type="number" class="form-control" id="order-qty" placeholder="Order QTY">
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="col-12 text-center position-absolute " style="width: fit-content; height: fit-content; top: 230px; left: 0; right: 0; margin: auto;">
-            <button type="reset" class="btn btn-primary">CLEAR</button>
-            <a href="7_order_manage_page.html" class="btn btn-danger">BACK TO ORDER MANAGE</a>
-        </div>
-    </form>
 </div>
 
 

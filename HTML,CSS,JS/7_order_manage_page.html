@@ -184,125 +184,127 @@
 
 <!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
 
-<!--Order page content-->
-<div class="container  position relative">
-    <!-- Page Header -->
-    <h1 class="text-center mb-4 position-absolute" style="font-size: 50px; top: 20px; left: 40vw; margin: 0; padding: 0;">Order Manage</h1>
+<div class="ordercommon">
+    <!--Order page content-->
+    <div class="container  position relative">
+        <!-- Page Header -->
+        <h1 class="text-center mb-4 position-absolute" style="font-size: 50px; top: 20px; left: 40vw; margin: 0; padding: 0;">Order Manage</h1>
 
-    <!--Form-->
-    <div class="row mb-3 position-absolute" style="width: 70rem; top:90px;  left: 0; right: 0; margin: auto">
-        <!-- Order Details -->
-        <div class="col-md-6">
-            <label for="order-id" class="form-label fw-semibold" style="font-size: 20px;">Order ID:</label>
-            <label id="order-id" class="form-label fw-semibold" style="font-size: 20px;"></label>
-        </div>
-        <div class="col-md-6">
-            <label for="date" class="form-label fw-semibold" style="font-size: 20px;">Date:</label>
-            <label id="date" class="form-label fw-semibold" style="font-size: 20px;"></label>
-        </div>
+        <!--Form-->
+        <div class="row mb-3 position-absolute" style="width: 70rem; top:90px;  left: 0; right: 0; margin: auto">
+            <!-- Order Details -->
+            <div class="col-md-6">
+                <label for="order-id" class="form-label fw-semibold" style="font-size: 20px;">Order ID:</label>
+                <label id="order-id" class="form-label fw-semibold" style="font-size: 20px;"></label>
+            </div>
+            <div class="col-md-6">
+                <label for="date" class="form-label fw-semibold" style="font-size: 20px;">Date:</label>
+                <label id="date" class="form-label fw-semibold" style="font-size: 20px;"></label>
+            </div>
 
-        <!-- Customer Details -->
-        <div class="col-md-6">
-            <label for="customer-id" class="form-label">Customer ID:</label>
-            <select class="form-select" id="customer-id">
-                <option value="">Customer ID</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="customer-name" class="form-label">Customer Name:</label>
-            <input type="text" class="form-control" id="customer-name" placeholder="Customer Name">
-        </div>
+            <!-- Customer Details -->
+            <div class="col-md-6">
+                <label for="customer-id" class="form-label">Customer ID:</label>
+                <select class="form-select" id="customer-id">
+                    <option value="">Customer ID</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="customer-name" class="form-label">Customer Name:</label>
+                <input type="text" class="form-control" id="customer-name" placeholder="Customer Name">
+            </div>
 
-        <!-- Item Details -->
-        <div class="col-md-6">
-            <label for="item-id" class="form-label">Item ID:</label>
-            <select class="form-select" id="item-id">
-                <option value="">Item ID</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="item-name" class="form-label">Item Name:</label>
-            <input type="text" class="form-control" id="item-name" placeholder="Item Name">
-        </div>
+            <!-- Item Details -->
+            <div class="col-md-6">
+                <label for="item-id" class="form-label">Item ID:</label>
+                <select class="form-select" id="item-id">
+                    <option value="">Item ID</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="item-name" class="form-label">Item Name:</label>
+                <input type="text" class="form-control" id="item-name" placeholder="Item Name">
+            </div>
 
-        <!-- Item Quantity and Pricing -->
-        <div class="col-md-4">
-            <label for="item-price" class="form-label">Item Price:</label>
-            <input type="text" class="form-control" id="item-price" placeholder="Item Price">
-        </div>
-        <div class="col-md-4">
-            <label for="item-stock-qty" class="form-label">Item Stock QTY:</label>
-            <input type="text" class="form-control" id="item-stock-qty" placeholder="Item Stock QTY">
-        </div>
-        <div class="col-md-4">
-            <label for="order-qty" class="form-label">Order QTY:</label>
-            <input type="text" class="form-control" id="order-qty" placeholder="Order QTY">
-        </div>
+            <!-- Item Quantity and Pricing -->
+            <div class="col-md-4">
+                <label for="item-price" class="form-label">Item Price:</label>
+                <input type="text" class="form-control" id="item-price" placeholder="Item Price">
+            </div>
+            <div class="col-md-4">
+                <label for="item-stock-qty" class="form-label">Item Stock QTY:</label>
+                <input type="text" class="form-control" id="item-stock-qty" placeholder="Item Stock QTY">
+            </div>
+            <div class="col-md-4">
+                <label for="order-qty" class="form-label">Order QTY:</label>
+                <input type="text" class="form-control" id="order-qty" placeholder="Order QTY">
+            </div>
 
-        <!-- Add to Order Button -->
-        <div class="mb-4 position-absolute" style=" width:max-content; height:max-content; top: 280px; left:0; right: 0; margin: auto;">
-            <button id="add-to-order" class="btn btn-primary" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-cart-50%20(1).png" alt="cart-icon" style="width: 30px; height: 30px; ">Add to Order List</button>
-        </div>
+            <!-- Add to Order Button -->
+            <div class="mb-4 position-absolute" style=" width:max-content; height:max-content; top: 280px; left:0; right: 0; margin: auto;">
+                <button id="add-to-order" class="btn btn-primary" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-cart-50%20(1).png" alt="cart-icon" style="width: 30px; height: 30px; ">Add to Order List</button>
+            </div>
 
-    </div>
-
-
-    <!-- Order List Table -->
-    <div class="table position-relative" style="margin: 0;">
-        <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 430px;">
-            <thead class="table-primary">
-            <tr>
-                <th>Item ID</th>
-                <th>Item Name</th>
-                <th>Item Price</th>
-                <th>Order QTY</th>
-                <th>Total</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Order Summary and Buttons -->
-    <div class=" position-relative">
-        <div class="place-an-order position-absolute" style="width: max-content; height: max-content; top: 760px; left: 0; right: 0; margin: auto">
-            <button class="btn btn-success place-order" style="font-size: 20px;">Place an Order!</button>
         </div>
 
-        <div class="order-history position-absolute" style="width: max-content; height: max-content; top: 27px; left: 900px;">
-            <a href="8_order_history_page.html ">
-                <button class="btn btn-warning order-history" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-history-50.png" alt="cart-icon" style="width: 20px; height: 20px; margin: 5px;">Order History</button>
-            </a>
+
+        <!-- Order List Table -->
+        <div class="table position-relative" style="margin: 0;">
+            <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 430px;">
+                <thead class="table-primary">
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Order QTY</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
-        <div class="order-total position-absolute" style="width: max-content; height: max-content; top: 760px; left: 830px;">
-            <strong>Order Total:</strong> <label id="total-price">TOTAL PRICE /=</label>
+        <!-- Order Summary and Buttons -->
+        <div class=" position-relative">
+            <div class="place-an-order position-absolute" style="width: max-content; height: max-content; top: 760px; left: 0; right: 0; margin: auto">
+                <button class="btn btn-success place-order" style="font-size: 20px;">Place an Order!</button>
+            </div>
+
+            <div class="order-history position-absolute" style="width: max-content; height: max-content; top: 27px; left: 900px;">
+                <a href="8_order_history_page.html ">
+                    <button class="btn btn-warning order-history" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-history-50.png" alt="cart-icon" style="width: 20px; height: 20px; margin: 5px;">Order History</button>
+                </a>
+            </div>
+
+            <div class="order-total position-absolute" style="width: max-content; height: max-content; top: 760px; left: 830px;">
+                <strong>Order Total:</strong> <label id="total-price">TOTAL PRICE /=</label>
+            </div>
         </div>
     </div>
 </div>

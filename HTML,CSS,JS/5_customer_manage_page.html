@@ -198,97 +198,99 @@
 
 <!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
 
-<!-- Customer Page Content -->
-<div class="content position-relative p-4">
-    <!-- Header -->
-    <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Customer Manage</h1>
+<div class="customercommon">
+    <!-- Customer Page Content -->
+    <div class="content position-relative p-4">
+        <!-- Header -->
+        <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Customer Manage</h1>
 
-    <!-- Customer Form -->
-    <form class="mt-5 ">
-        <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
-            <!-- Customer ID -->
-            <div class="col-md-3">
-                <label for="customerId" class="form-label fw-medium" style="font-size: 18px;">Customer ID</label>
-                <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
+        <!-- Customer Form -->
+        <form class="mt-5 ">
+            <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
+                <!-- Customer ID -->
+                <div class="col-md-3">
+                    <label for="customerId" class="form-label fw-medium" style="font-size: 18px;">Customer ID</label>
+                    <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
+                </div>
+                <!-- Customer Name -->
+                <div class="col-md-3">
+                    <label for="customerName" class="form-label fw-medium" style="font-size: 18px;">Customer Name</label>
+                    <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
+                </div>
+                <!-- Customer Address -->
+                <div class="col-md-3">
+                    <label for="customerAddress" class="form-label fw-medium" style="font-size: 18px;">Customer Address</label>
+                    <input type="text" class="form-control" id="customerAddress" placeholder="Customer Address">
+                </div>
+                <!-- Customer Tel -->
+                <div class="col-md-3">
+                    <label for="customerTel" class="form-label fw-medium" style="font-size: 18px;">Customer Tel.</label>
+                    <input type="tel" class="form-control" id="customerTel" placeholder="Customer Tel.">
+                </div>
+                <!-- Customer Email -->
+                <div class="col-md-3">
+                    <label for="customerEmail" class="form-label fw-medium" style="font-size: 18px;">Customer Email</label>
+                    <input type="email" class="form-control" id="customerEmail" placeholder="Customer Email">
+                </div>
             </div>
-            <!-- Customer Name -->
-            <div class="col-md-3">
-                <label for="customerName" class="form-label fw-medium" style="font-size: 18px;">Customer Name</label>
-                <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
+
+            <!-- CRUD Buttons -->
+            <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:max-content; height:max-content; top: 260px; left: 800px;">
+                <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+                <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+                <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+                <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
             </div>
-            <!-- Customer Address -->
-            <div class="col-md-3">
-                <label for="customerAddress" class="form-label fw-medium" style="font-size: 18px;">Customer Address</label>
-                <input type="text" class="form-control" id="customerAddress" placeholder="Customer Address">
-            </div>
-            <!-- Customer Tel -->
-            <div class="col-md-3">
-                <label for="customerTel" class="form-label fw-medium" style="font-size: 18px;">Customer Tel.</label>
-                <input type="tel" class="form-control" id="customerTel" placeholder="Customer Tel.">
-            </div>
-            <!-- Customer Email -->
-            <div class="col-md-3">
-                <label for="customerEmail" class="form-label fw-medium" style="font-size: 18px;">Customer Email</label>
-                <input type="email" class="form-control" id="customerEmail" placeholder="Customer Email">
-            </div>
-        </div>
+        </form>
+    </div>
 
-        <!-- CRUD Buttons -->
-        <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:max-content; height:max-content; top: 260px; left: 800px;">
-            <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
-            <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
-            <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
-            <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
-        </div>
-    </form>
-</div>
+    <!--table-->
+    <div class="table position-relative">
+        <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1000px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+            <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Customer Address</th>
+                <th>Customer Tel.</th>
+                <th>Customer Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
-<!--table-->
-<div class="table position-relative">
-    <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1000px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
-        <thead>
-        <tr>
-            <th>Customer ID</th>
-            <th>Customer Name</th>
-            <th>Customer Address</th>
-            <th>Customer Tel.</th>
-            <th>Customer Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
 
 
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
