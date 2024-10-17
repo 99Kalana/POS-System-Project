@@ -135,8 +135,79 @@
             background-color: #ff6b6b;
             color: #ffffff;
         }
-        /*side bar styles end-----------------------------------*/
 
+        /* New rule to change icon color to white when active */
+        .sidebar-item.active img {
+            filter: brightness(0) invert(1);
+        }
+        /*side bar styles end-----------------------------------*/
+        #item-page {
+            transition: margin-left 0.3s;
+        }
+
+        #item-page.shifted {
+            margin-left: 300px;
+        }
+
+        /*==============================================================*/
+
+
+        @media all and (max-width: 1440px) {
+
+            .sidebar {
+                width: 100px;
+            }
+            .sidebar.expanded {
+                width: 250px;
+            }
+            #item-page {
+                margin-left: 100px;
+            }
+            #item-page.shifted {
+                margin-left: 250px;
+            }
+
+            #item-page h1 {
+                font-size: 45px;
+            }
+            .form-label {
+                font-size: 16px;
+            }
+            .table {
+                font-size: 16px;
+            }
+        }
+
+        @media all and (max-width: 1024px) {
+
+            .sidebar {
+                width: 80px;
+            }
+            .sidebar.expanded {
+                width: 200px;
+            }
+            #item-page {
+                margin-left: 80px;
+            }
+            #item-page.shifted {
+                margin-left: 200px;
+            }
+
+            #item-page h1 {
+                font-size: 40px;
+            }
+            .form-label {
+                font-size: 15px;
+            }
+            .table {
+                font-size: 14px;
+            }
+
+            .table {
+                width: 100%;
+                font-size: 14px;
+            }
+        }
 
     </style>
 
@@ -179,27 +250,18 @@
     </div>
 </div>
 
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('expanded');
-    }
-
-    function activateItem(element) {
-        // Remove active class from all items
-        const items = document.querySelectorAll('.sidebar-item');
-        items.forEach(item => item.classList.remove('active'));
-
-        // Add active class to clicked item
-        element.classList.add('active');
-    }
-</script>
 
 <!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
 
+<<<<<<< HEAD
 <div class="itemcommon">
     <!-- Item Page Content -->
     <div class="content position-relative p-4">
+=======
+<div id="item-page">
+    <!-- Item Page Content -->
+    <div class="content position-relative p-4" id="item-content">
+>>>>>>> 9397868 (Positioning and Responsive)
         <!-- Header -->
         <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Item Manage</h1>
 
@@ -237,6 +299,7 @@
                     <input type="text" class="form-control" id="itemQty" placeholder="Item QTY">
                 </div>
             </div>
+<<<<<<< HEAD
 
             <!-- CRUD Buttons -->
             <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:max-content; height:max-content; top: 260px; left: 1080px;">
@@ -250,6 +313,21 @@
 
     <!--table-->
     <div class="table position-relative">
+=======
+
+            <!-- CRUD Buttons -->
+            <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:fit-content; height:fit-content; top: 330px; left: 0;right: 0;margin: auto">
+                <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+                <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+                <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+                <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <!--table-->
+    <div class="table position-relative" id="item-table-content">
+>>>>>>> 9397868 (Positioning and Responsive)
         <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
             <thead>
             <tr>
@@ -269,6 +347,45 @@
                 <td></td>
                 <td></td>
                 <td></td>
+<<<<<<< HEAD
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            </tbody>
+        </table>
+=======
 
             </tr>
             <tr>
@@ -310,6 +427,27 @@
 
     </div>
 </div>
+
+<!--Menubar script-->
+
+<script>
+    function toggleSidebar() {
+
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('item-page');
+>>>>>>> 9397868 (Positioning and Responsive)
+
+        sidebar.classList.toggle('expanded');
+        content.classList.toggle('shifted');
+    }
+</script>
+
+<<<<<<< HEAD
+    </div>
+</div>
+=======
+<script src="menubar-script.js"></script>
+>>>>>>> 9397868 (Positioning and Responsive)
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

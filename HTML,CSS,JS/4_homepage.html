@@ -133,9 +133,23 @@
             background-color: #ff6b6b;
             color: #ffffff;
         }
+
+        /* New rule to change icon color to white when active */
+        .sidebar-item.active img {
+            filter: brightness(0) invert(1);
+        }
         /*side bar styles end-----------------------------------*/
 
         /*homepage content*/
+
+        #homepage-content {
+            transition: margin-left 0.3s;
+        }
+
+        #homepage-content.shifted {
+            margin-left: 300px;
+        }
+
         #homepage-content>#home-content-heading>h1:first-child>span>label{
             color: orange;
         }
@@ -149,6 +163,49 @@
             transition:transform 1s ;
             transform: scale(1.2);
         }
+
+        /*=========================================================================*/
+
+
+        @media all and (max-width: 1440px) {
+
+            .sidebar {
+                width: 100px;
+            }
+            .sidebar.expanded {
+                width: 250px;
+            }
+            #homepage-content {
+                margin-left: 100px;
+            }
+            #homepage-content.shifted {
+                margin-left: 250px;
+            }
+        }
+
+        @media all and (max-width: 1024px) {
+
+            .sidebar {
+                width: 80px;
+            }
+            .sidebar.expanded {
+                width: 200px;
+            }
+            #homepage-content {
+                margin-left: 80px;
+            }
+            #homepage-content.shifted {
+                margin-left: 200px;
+            }
+            /* Adjust font sizes */
+            #home-content-heading h1 {
+                font-size: 50px;
+            }
+            .sidebar-header {
+                font-size: 1rem;
+            }
+        }
+
 
 
     </style>
@@ -192,21 +249,7 @@
     </div>
 </div>
 
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('expanded');
-    }
 
-    function activateItem(element) {
-        // Remove active class from all items
-        const items = document.querySelectorAll('.sidebar-item');
-        items.forEach(item => item.classList.remove('active'));
-
-        // Add active class to clicked item
-        element.classList.add('active');
-    }
-</script>
 
 <!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
 
@@ -239,8 +282,47 @@
 
 
     </div>
+<<<<<<< HEAD
+=======
+
+    <!--nav and counts-->
+    <div class="position-absolute" id="count-display" style="width: 300px; height: max-content; left:0; right: 0; margin: auto; top: 430px;">
+        <div class="position-absolute" id="customernav" style="width: max-content; height: max-content; left: 0; ">
+            <a href="5_customer_manage_page.html" style="text-decoration: none; color: inherit;">
+                <img src="../assets/images/icons/homepage-sidebar-icons/icons8-customer-100.png" alt="customer-icon">
+            </a>
+            <h1 class=" text-center fw-semibold" style="font-size: 16px; width: max-content; height: max-content; margin-left: -10px;">Customer Count:</h1>
+            <label class="count-label position-absolute" id="customercount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+        </div>
+
+        <div class="position-absolute" id="itemnav" style="width: max-content; height: max-content; right: 0; ">
+            <a href="6_item_manage_page.html" style="text-decoration: none; color: inherit;">
+                <img src="../assets/images/icons/homepage-sidebar-icons/icons8-box-100.png" alt="customer-icon">
+            </a>
+            <h1 class=" text-center fw-semibold" style="font-size: 16px;">Item Count:</h1>
+            <label class="count-label position-absolute" id="itemcount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+        </div>
+    </div>
+
+
+>>>>>>> 9397868 (Positioning and Responsive)
 </div>
 
+<!--Menubar script-->
+
+<script>
+    function toggleSidebar() {
+        /*const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('expanded');*/
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('homepage-content');
+
+        sidebar.classList.toggle('expanded');
+        content.classList.toggle('shifted');
+    }
+</script>
+
+<script src="menubar-script.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
