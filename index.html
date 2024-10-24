@@ -9,31 +9,891 @@
     <link rel="icon" type="image/x-icon" href="assets/images/POS-Logo.png">
     <link rel="stylesheet" href=assets/styles/normalize.css>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Welcome Start</title>
+    <title>index.html</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        /*side bar styles-----------------------------------*/
+        .sidebar {
+            background-color: #ffffff;
+            height: 100vh;
+            width: 80px;
+            transition: width 0.3s;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 0 8px 8px 0;
+            justify-content: center;
+        }
+        .sidebar.expanded{
+            width: 300px;
+        }
+        .sidebar .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.expanded .toggle-btn .menu-icon {
+            display: none;
+        }
+        .sidebar .toggle-btn .menu-icon {
+            display: block;
+        }
+        .sidebar.expanded .toggle-btn .close-icon {
+            display: block;
+        }
+        .close-icon {
+            display: none;
+        }
+        .menu-icon {
+            display: inline;
+        }
+        .sidebar .sidebar-header {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: none;
+        }
+        .sidebar.expanded .sidebar-header {
+            display: block;
+            margin-top: 60px;
+        }
+        .sidebar .sidebar-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar .sidebar-item {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.3s;
+            justify-content: center;
+            background-color: #f2f2f2; /* Light silver background */
+        }
+        .sidebar .sidebar-item:hover {
+            background-color: #e0e0e0;
+        }
+        .sidebar .sidebar-item img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .sidebar.expanded .sidebar-item {
+            justify-content: flex-start;
+        }
+        .sidebar.expanded .sidebar-item img {
+            margin-right: 10px;
+        }
+        .sidebar .sidebar-item span {
+            display: none;
+        }
+        .sidebar.expanded .sidebar-item span {
+            display: inline-block;
+        }
+        .sidebar .sidebar-footer {
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        .sidebar .sidebar-footer .sidebar-item {
+            color: #ff6b6b;
+        }
+        /* Active and Logout Color */
+        .sidebar-item.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .sidebar-item.logout.active {
+            background-color: #ff6b6b;
+            color: #ffffff;
+        }
+
+        /* New rule to change icon color to white when active */
+        .sidebar-item.active img {
+            filter: brightness(0) invert(1);
+        }
+        /*side bar styles end-----------------------------------*/
+
+        /*homepage content*/
+
+        #homepage-content {
+            transition: margin-left 0.3s;
+        }
+
+        #homepage-content.shifted {
+            margin-left: 300px;
+        }
+
+        #homepage-content>#home-content-heading>h1:first-child>span>label{
+            color: orange;
+        }
+
+        #homepage-content>#customernav>a>img:hover{
+            transition:transform 1s ;
+            transform: scale(1.2);
+        }
+
+        #homepage-content>#itemnav>a>img:hover{
+            transition:transform 1s ;
+            transform: scale(1.2);
+        }
+
+        /*=========================================================================*/
+
+
+        @media all and (max-width: 1440px) {
+
+            .sidebar {
+                width: 100px;
+            }
+            .sidebar.expanded {
+                width: 250px;
+            }
+            #homepage-content {
+                margin-left: 100px;
+            }
+            #homepage-content.shifted {
+                margin-left: 250px;
+            }
+        }
+
+        @media all and (max-width: 1024px) {
+
+            .sidebar {
+                width: 80px;
+            }
+            .sidebar.expanded {
+                width: 200px;
+            }
+            #homepage-content {
+                margin-left: 80px;
+            }
+            #homepage-content.shifted {
+                margin-left: 200px;
+            }
+            /* Adjust font sizes */
+            #home-content-heading h1 {
+                font-size: 50px;
+            }
+            .sidebar-header {
+                font-size: 1rem;
+            }
+        }
+
+
+
+    </style>
+
+
 </head>
 <body>
 
-<!--Heading-->
-<div class="position-absolute top-50 start-50 translate-middle <!--border border-primary--> overflow-auto" style="width: max-content; height: max-content;">
-    <h1 class="text-center fw-bold" style="font-size: 5rem;">Welcome to</h1>
-    <h1 class="text-center fw-bold" style="font-size: 5rem;">Kalana's POS System</h1>
+<!---------------------------------------------------------------sidebar----------------------------------------------------------------------------------------------------->
 
-    <!--Button-->
-    <a href="HTML,CSS,JS/1_login_page.html" style="text-decoration: none; color: inherit;">
-        <div class="d-grid gap-2 col-3 mx-auto mt-4">
-            <button class="btn btn-success btn-lg fw-bold d-flex align-items-center justify-content-center" type="button" style="font-size: 30px;">
-                <img src="assets/images/icons/welcome-page-icons/icons8-enter-50.png" alt="Enter Icon" title="Enter Icon" style="width: 30px; height: 30px; margin-right: 10px;">
-                Enter
-            </button>
-        </div>
-    </a>
+<div class="sidebar" id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span class="menu-icon">&#9776;</span> <!-- Hamburger icon -->
+        <span class="close-icon">&#x276E;</span> <!-- Left arrow for expanded state -->
+    </div>
+    <div class="sidebar-header"> Kalana's POS System</div>
 
+    <div class="sidebar-content">
+        <span id="homepage-nav" class="sidebar-item" onclick="activateItem(this)">
+            <img src="assets/images/icons/homepage-sidebar-icons/icons8-home-50.png" alt="Homepage" style="height: 38px; width: 38px;">
+            <span>Homepage</span>
+        </span>
+        <span id="customer-nav" class="sidebar-item" onclick="activateItem(this)">
+            <img src="assets/images/icons/homepage-sidebar-icons/icons8-customer-50.png" alt="Customer Manage" style="height: 38px; width: 38px;">
+            <span>Customer Manage</span>
+        </span>
+        <span id="item-nav" class="sidebar-item" onclick="activateItem(this)">
+            <img src="assets/images/icons/homepage-sidebar-icons/icons8-box-64.png" alt="Item Manage" style="height: 38px; width: 38px;">
+            <span>Item Manage</span>
+        </span>
+        <span id="order-nav" class="sidebar-item" onclick="activateItem(this)">
+            <img src="assets/images/icons/homepage-sidebar-icons/icons8-moleskine-48.png" alt="Order Manage" style="height: 38px; width: 38px;">
+            <span>Order Manage</span>
+        </span>
+    </div>
+
+    <div class="sidebar-footer">
+        <a href="HTML,CSS,JS/1_login_page.html" class="sidebar-item logout" onclick="activateItem(this)">
+            <img src="assets/images/icons/homepage-sidebar-icons/icons8-logout-50.png" alt="Logout" style="height: 30px; width: 30px;">
+            <span>Logout</span>
+        </a>
+    </div>
 </div>
 
 
 
+<!-------------------------------------------------------------------Sidebar end ----------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------ SPA - Single Point of Access --------------------------------------------------------------->
+
+
+<!--Homepage Content-->
+<div class="position-relative" id="homepage-content">
+    <!--heading-->
+    <div id="home-content-heading" class="position-absolute " style="width: max-content; height: max-content; left: 0; right: 0; margin: auto; top: 200px;">
+        <h1 class="text-center fw-bolder" style="font-size: 60px;">Welcome <span><label class="heading-label" id="username-label">Kalana</label></span></h1>
+        <h1 class="text-center fw-bolder" style="font-size: 60px;">to the POS System</h1>
+    </div>
+
+    <!--nav and counts-->
+    <div class="position-absolute" id="count-display" style="width: 300px; height: max-content; left:0; right: 0; margin: auto; top: 430px;">
+        <div class="position-absolute" id="customernav" style="width: max-content; height: max-content; left: 0; ">
+            <a href="HTML,CSS,JS/5_customer_manage_page.html" style="text-decoration: none; color: inherit;">
+                <img src="assets/images/icons/homepage-sidebar-icons/icons8-customer-100.png" alt="customer-icon">
+            </a>
+            <h1 class=" text-center fw-semibold" style="font-size: 16px; width: max-content; height: max-content; margin-left: -10px;">Customer Count:</h1>
+            <label class="count-label position-absolute" id="customercount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+        </div>
+
+        <div class="position-absolute" id="itemnav" style="width: max-content; height: max-content; right: 0; ">
+            <a href="HTML,CSS,JS/6_item_manage_page.html" style="text-decoration: none; color: inherit;">
+                <img src="assets/images/icons/homepage-sidebar-icons/icons8-box-100.png" alt="customer-icon">
+            </a>
+            <h1 class=" text-center fw-semibold" style="font-size: 16px;">Item Count:</h1>
+            <label class="count-label position-absolute" id="itemcount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+        </div>
+    </div>
+</div>
+
+<!-- Customer Page Content -->
+<div id="customer-page">
+    <!-- Customer Page Content -->
+    <div class="content position-relative p-4" id="customer-content">
+
+        <!-- Header -->
+        <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Customer Manage</h1>
+
+        <!-- Customer Form -->
+        <form class="mt-5 ">
+            <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
+                <!-- Customer ID -->
+                <div class="col-md-3">
+                    <label for="customerId" class="form-label fw-medium" style="font-size: 18px;">Customer ID</label>
+                    <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
+                </div>
+                <!-- Customer Name -->
+                <div class="col-md-3">
+                    <label for="customerName" class="form-label fw-medium" style="font-size: 18px;">Customer Name</label>
+                    <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
+                </div>
+                <!-- Customer Address -->
+                <div class="col-md-3">
+                    <label for="customerAddress" class="form-label fw-medium" style="font-size: 18px;">Customer Address</label>
+                    <input type="text" class="form-control" id="customerAddress" placeholder="Customer Address">
+                </div>
+                <!-- Customer Tel -->
+                <div class="col-md-3">
+                    <label for="customerTel" class="form-label fw-medium" style="font-size: 18px;">Customer Tel.</label>
+                    <input type="tel" class="form-control" id="customerTel" placeholder="Customer Tel.">
+                </div>
+                <!-- Customer Email -->
+                <div class="col-md-3">
+                    <label for="customerEmail" class="form-label fw-medium" style="font-size: 18px;">Customer Email</label>
+                    <input type="email" class="form-control" id="customerEmail" placeholder="Customer Email">
+                </div>
+            </div>
+
+
+            <!-- CRUD Buttons -->
+            <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:fit-content; height:fit-content; top: 330px; left: 0;right: 0;margin: auto">
+                <button type="button" id="customer_add_btn" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+                <button type="button" id="customer_update_btn" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+                <button type="button" id="customer_delete_btn" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+                <button type="button" id="customer_clear_btn" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <!--table-->
+    <div class="table position-relative" id="customer-table-content">
+
+        <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1000px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+            <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Customer Address</th>
+                <th>Customer Tel.</th>
+                <th>Customer Email</th>
+            </tr>
+            </thead>
+            <tbody id="customerTableBody">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+<!-- Item Page Content -->
+<div id="item-page">
+    <!-- Item Page Content -->
+    <div class="content position-relative p-4" id="item-content">
+
+        <!-- Header -->
+        <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Item Manage</h1>
+
+        <!-- Item Form -->
+        <form class="mt-5 ">
+            <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
+                <!-- Item ID -->
+                <div class="col-md-3">
+                    <label for="itemId" class="form-label fw-medium" style="font-size: 18px;">Item ID</label>
+                    <input type="text" class="form-control" id="itemId" placeholder="Item ID">
+                </div>
+                <!-- Item Name -->
+                <div class="col-md-3">
+                    <label for="itemName" class="form-label fw-medium" style="font-size: 18px;">Item Name</label>
+                    <input type="text" class="form-control" id="itemName" placeholder="Item Name">
+                </div>
+                <!-- Item Type -->
+                <div class="col-md-3">
+                    <label for="itemType" class="form-label fw-medium" style="font-size: 18px;">Item Type</label>
+                    <input type="text" class="form-control" id="itemType" placeholder="Item Type">
+                </div>
+                <!-- Item Price -->
+                <div class="col-md-3">
+                    <label for="itemPrice" class="form-label fw-medium" style="font-size: 18px;">Item Price</label>
+                    <input type="text" class="form-control" id="itemPrice" placeholder="Item Price">
+                </div>
+                <!-- Item Description -->
+                <div class="col-md-3">
+                    <label for="itemDescription" class="form-label fw-medium" style="font-size: 18px;">Item Description</label>
+                    <input type="text" class="form-control" id="itemDescription" placeholder="Item Description">
+                </div>
+                <!-- Item QTY -->
+                <div class="col-md-3">
+                    <label for="itemQty" class="form-label fw-medium" style="font-size: 18px;">Item QTY</label>
+                    <input type="text" class="form-control" id="itemQty" placeholder="Item QTY">
+                </div>
+            </div>
+
+
+            <!-- CRUD Buttons -->
+            <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:fit-content; height:fit-content; top: 330px; left: 0;right: 0;margin: auto">
+                <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+                <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+                <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+                <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!--table-->
+    <div class="table position-relative" id="item-table-content">
+
+        <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Type</th>
+                <th>Item Price</th>
+                <th>Item Description</th>
+                <th>Item QTY</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+<!--Order page content-->
+<div id="order-manage-page">
+    <!--Order page content-->
+    <div class="container  position relative">
+        <!-- Page Header -->
+        <h1 class="text-center position-relative" style="font-size: 50px; top: 20px; left:0; right: 0; margin: auto; padding: 0;">Order Manage</h1>
+
+        <!--Form-->
+        <div class="row mb-3 position-relative" style="width: fit-content; height: fit-content; top:50px;  left: 0; right: 0; margin: auto; padding: 0">
+            <!-- Order Details -->
+            <div class="col-md-6">
+                <label for="order-id" class="form-label fw-semibold" style="font-size: 20px;">Order ID:</label>
+                <label id="order-id" class="form-label fw-semibold" style="font-size: 20px;"></label>
+            </div>
+            <div class="col-md-6">
+                <label for="date" class="form-label fw-semibold" style="font-size: 20px;">Date:</label>
+                <label id="date" class="form-label fw-semibold" style="font-size: 20px;"></label>
+            </div>
+
+            <!-- Customer Details -->
+            <div class="col-md-6">
+                <label for="customer-id" class="form-label">Customer ID:</label>
+                <select class="form-select" id="customer-id">
+                    <option value="">Customer ID</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="customer-name" class="form-label">Customer Name:</label>
+                <input type="text" class="form-control" id="customer-name" placeholder="Customer Name">
+            </div>
+
+            <!-- Item Details -->
+            <div class="col-md-6">
+                <label for="item-id" class="form-label">Item ID:</label>
+                <select class="form-select" id="item-id">
+                    <option value="">Item ID</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="item-name" class="form-label">Item Name:</label>
+                <input type="text" class="form-control" id="item-name" placeholder="Item Name">
+            </div>
+
+            <!-- Item Quantity and Pricing -->
+            <div class="col-md-4">
+                <label for="item-price" class="form-label">Item Price:</label>
+                <input type="text" class="form-control" id="item-price" placeholder="Item Price">
+            </div>
+            <div class="col-md-4">
+                <label for="item-stock-qty" class="form-label">Item Stock QTY:</label>
+                <input type="text" class="form-control" id="item-stock-qty" placeholder="Item Stock QTY">
+            </div>
+            <div class="col-md-4">
+                <label for="order-qty" class="form-label">Order QTY:</label>
+                <input type="text" class="form-control" id="order-qty" placeholder="Order QTY">
+            </div>
+
+
+
+        </div>
+
+        <!-- Add to Order Button -->
+        <div class="mb-4 position-relative" style=" width:max-content; height:max-content; top: 60px; left:0; right: 0; margin: auto; padding: 0;">
+            <button id="add-to-order" class="btn btn-primary" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-cart-50%20(1).png" alt="cart-icon" style="width: 30px; height: 30px; ">Add to Order List</button>
+        </div>
+
+
+        <!-- Order List Table -->
+        <div class="table position-relative" style="margin: 0;">
+            <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 50px;">
+                <thead class="table-primary">
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Order QTY</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Order Summary and Buttons -->
+        <div class=" position-relative">
+            <div class="place-an-order position-absolute" style="width: max-content; height: max-content; top: 400px; left: 0; right: 0; margin: auto">
+                <button class="btn btn-success place-order" style="font-size: 20px;">Place an Order!</button>
+            </div>
+
+            <div class="order-history position-absolute" style="width: max-content; height: max-content; top: 400px; left: 100px;">
+                <span href="8_order_history_page.html " class="nav" id="order-history-nav">
+                    <button class="btn btn-warning order-history" style="font-size: 20px;"><img src="../assets/images/icons/orderpage-icons/icons8-history-50.png" alt="cart-icon" style="width: 20px; height: 20px; margin: 5px;">Order History</button>
+                </span>
+            </div>
+
+            <div class="order-total position-absolute" style="width: max-content; height: max-content; top: 400px; left: 830px;">
+
+                <strong>Order Total:</strong> <label id="total-price">TOTAL PRICE /=</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Order History Content-->
+<div id="order-history-page">
+    <div class="container position-relative" >
+        <!-- Page Title -->
+        <h2 class="text-center position-absolute" style="width:max-content; height:max-content; top: 20px; left: 0; right: 0; margin: auto;">Order History</h2>
+
+
+        <!-- Order History Table -->
+        <div class="table position-absolute">
+            <table class="table table-bordered table-striped position-absolute" style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 100px;">
+                <thead class="table-primary">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Customer ID</th>
+                    <th>Item ID</th>
+                    <th>Item Price</th>
+                    <th>Order QTY</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Search Form -->
+        <form class="row g-3 position-absolute" style="width: fit-content; height: fit-content; top: 500px;">
+            <div class="col-md-4">
+                <label for="order-id" class="form-label">Order ID</label>
+                <input type="text" class="form-control" id="order-ids" placeholder="Enter Order ID to search">
+            </div>
+            <div class="col-md-4">
+                <label for="date" class="form-label">Date</label>
+                <input type="text" class="form-control" id="dates" placeholder="Date">
+            </div>
+            <div class="col-md-4">
+                <label for="customer-id" class="form-label">Customer ID</label>
+                <input type="text" class="form-control" id="customer-ids" placeholder="Customer ID">
+            </div>
+            <div class="col-md-4">
+                <label for="item-id" class="form-label">Item ID</label>
+                <input type="text" class="form-control" id="item-ids" placeholder="Item ID">
+            </div>
+            <div class="col-md-4">
+                <label for="item-price" class="form-label">Item Price</label>
+                <input type="text" class="form-control" id="item-prices" placeholder="Item Price">
+            </div>
+            <div class="col-md-4">
+                <label for="order-qty" class="form-label">Order QTY</label>
+                <input type="number" class="form-control" id="order-qtys" placeholder="Order QTY">
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12 text-center position-absolute " style="width: fit-content; height: fit-content; top: 230px; left: 0; right: 0; margin: auto;">
+                <button type="reset" class="btn btn-primary">CLEAR</button>
+                <span class="btn btn-danger nav"  id="order-manage-nav">BACK TO ORDER MANAGE</span>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<!--JQuery-->
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+
+<script>
+
+    let homepage_nav = document.getElementById("homepage-nav");
+    let customer_nav = document.getElementById("customer-nav");
+    let item_nav = document.getElementById("item-nav");
+    let order_nav = document.getElementById("order-nav");
+    let order_history_nav = document.getElementById("order-history-nav")
+    let back_to_order_nav = document.getElementById("order-manage-nav")
+
+    let homepage_section = document.getElementById("homepage-content");
+    let customer_section = document.getElementById("customer-page");
+    let item_section = document.getElementById("item-page");
+    let order_manage_section = document.getElementById("order-manage-page");
+    let order_history_section = document.getElementById("order-history-page");
+
+    homepage_section.style.display="display";
+    customer_section.style.display="none";
+    item_section.style.display="none";
+    order_manage_section.style.display="none";
+    order_history_section.style.display="none";
+
+
+    homepage_nav.addEventListener('click', function (){
+        homepage_section.style.display="block";
+        customer_section.style.display="none";
+        item_section.style.display="none";
+        order_manage_section.style.display="none";
+        order_history_section.style.display="none";
+    });
+
+    customer_nav.addEventListener('click', function (){
+        homepage_section.style.display="none";
+        customer_section.style.display="block";
+        item_section.style.display="none";
+        order_manage_section.style.display="none";
+        order_history_section.style.display="none";
+    });
+
+    item_nav.addEventListener('click', function (){
+        homepage_section.style.display="none";
+        customer_section.style.display="none";
+        item_section.style.display="block";
+        order_manage_section.style.display="none";
+        order_history_section.style.display="none";
+    });
+
+    order_nav.addEventListener('click', function (){
+        homepage_section.style.display="none";
+        customer_section.style.display="none";
+        item_section.style.display="none";
+        order_manage_section.style.display="block";
+        order_history_section.style.display="none";
+    });
+
+    order_history_nav.addEventListener('click', function (){
+        homepage_section.style.display="none";
+        customer_section.style.display="none";
+        item_section.style.display="none";
+        order_manage_section.style.display="none";
+        order_history_section.style.display="block";
+    });
+
+    back_to_order_nav.addEventListener('click', function (){
+        homepage_section.style.display="none";
+        customer_section.style.display="none";
+        item_section.style.display="none";
+        order_manage_section.style.display="block";
+        order_history_section.style.display="none";
+    });
+
+
+</script>
+
+
+
+
+<!-----------------------------------------------------SPA Ends------------------------------------------------------------->
+
+<!--Menubar script-->
+
+<script>
+    function toggleSidebar() {
+        /*const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('expanded');*/
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('homepage-content');
+
+        sidebar.classList.toggle('expanded');
+        content.classList.toggle('shifted');
+    }
+</script>
+
+
+<script src="HTML,CSS,JS/menubar-script.js"></script>
+
+<script src="HTML,CSS,JS/CRUD-Script.js"></script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>
