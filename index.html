@@ -165,6 +165,42 @@
             transform: scale(1.2);
         }
 
+        /*customer page content*/
+        #customer-page {
+            transition: margin-left 0.3s;
+        }
+
+        #customer-page.shifted {
+            margin-left: 300px;
+        }
+
+        /*item page content*/
+        #item-page {
+            transition: margin-left 0.3s;
+        }
+
+        #item-page.shifted {
+            margin-left: 300px;
+        }
+
+        /*order page content*/
+        #order-manage-page {
+            transition: margin-left 0.3s;
+        }
+
+        #order-manage-page.shifted {
+            margin-left: 300px;
+        }
+
+        /*order history page*/
+        #order-history-page {
+            transition: margin-left 0.3s;
+        }
+
+        #order-history-page.shifted {
+            margin-left: 300px;
+        }
+
         /*=========================================================================*/
 
 
@@ -182,14 +218,83 @@
             #homepage-content.shifted {
                 margin-left: 250px;
             }
+
+            /*--------------------------------*/
+            #customer-page {
+                margin-left: 100px;
+            }
+            #customer-page.shifted {
+                margin-left: 250px;
+            }
+
+            #customer-page .table {
+                width: 90%;
+            }
+
+            /*-------------------------------------*/
+            #item-page {
+                margin-left: 100px;
+            }
+            #item-page.shifted {
+                margin-left: 250px;
+            }
+
+            #item-page h1 {
+                font-size: 45px;
+            }
+            #item-page .form-label {
+                font-size: 16px;
+            }
+            #item-page .table {
+                font-size: 16px;
+            }
+
+            /*----------------------------------------*/
+            #order-manage-page > h1 {
+                font-size: 40px;
+            }
+
+            #order-manage-page .table {
+                width: 90%;
+            }
+
+            #order-manage-page.position-relative {
+                top: 30px;
+            }
+
+            #order-manage-page .btn {
+                font-size: 18px;
+            }
+
+            #order-manage-page .form-label {
+                font-size: 18px;
+            }
+
+
+            #order-manage-page .sidebar .sidebar-item {
+                padding: 8px;
+            }
+
+            #order-manage-page .sidebar.expanded .sidebar-header {
+                margin-top: 50px;
+            }
+            /*------------------------------------*/
+            #order-history-page {
+                margin-left: 150px;
+            }
+            #order-history-page .table {
+                width: 90%;
+                margin: 20px auto;
+                font-size: 16px;
+            }
         }
 
         @media all and (max-width: 1024px) {
 
-            .sidebar {
+            #homepage-content .sidebar {
                 width: 80px;
             }
-            .sidebar.expanded {
+            #homepage-content .sidebar.expanded {
                 width: 200px;
             }
             #homepage-content {
@@ -202,8 +307,122 @@
             #home-content-heading h1 {
                 font-size: 50px;
             }
-            .sidebar-header {
+            #homepage-content.sidebar-header {
                 font-size: 1rem;
+            }
+
+            /*----------------------*/
+            #customer-page {
+                margin-left: 80px;
+            }
+            #customer-page.shifted {
+                margin-left: 200px;
+            }
+
+            #customer-content h1 {
+                font-size: 40px;
+            }
+            #customer-content.sidebar-header {
+                font-size: 1rem;
+            }
+            #customer-content.table {
+                font-size: 16px;
+            }
+
+            /*--------------------------*/
+            #item-page {
+                margin-left: 80px;
+            }
+            #item-page.shifted {
+                margin-left: 200px;
+            }
+
+            #item-page h1 {
+                font-size: 40px;
+            }
+            #item-page.form-label {
+                font-size: 15px;
+            }
+            #item-page.table {
+                font-size: 14px;
+            }
+
+            #item-page.table {
+                width: 100%;
+                font-size: 14px;
+            }
+            /*-----------------------------------*/
+            #order-manage-page h1 {
+                font-size: 30px;
+            }
+
+            #order-manage-page.table {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            #order-manage-page.position-relative {
+                top: 20px;
+            }
+
+            #order-manage-page.form-select, .form-control {
+                font-size: 16px;
+            }
+
+            #order-manage-page.btn {
+                font-size: 16px;
+            }
+
+            #order-manage-page.sidebar {
+                width: 60px;
+            }
+
+            #order-manage-page.sidebar.expanded {
+                width: 200px;
+            }
+
+            #order-manage-page.sidebar .sidebar-header {
+                font-size: 1rem;
+            }
+
+            #order-manage-page.sidebar-item span {
+                display: none;
+            }
+
+            #order-manage-page.sidebar.expanded .sidebar-item span {
+                display: inline-block;
+            }
+
+            #order-manage-page.sidebar-item img {
+                width: 30px;
+                height: 30px;
+            }
+
+
+            #order-manage-page {
+                padding: 0 10px;
+            }
+
+            #order-manage-page.place-an-order, .order-history, .order-total {
+                top: 350px;
+            }
+
+            #order-manage-page.order-history {
+                left: 70px;
+            }
+
+            #order-manage-page.order-total {
+                left: 700px;
+            }
+
+            /*--------------------------*/
+            #order-history-page {
+                margin-left: 100px;
+            }
+            #order-history-page.table {
+                width: 95%;
+                margin: 10px auto;
+                font-size: 14px;
             }
         }
 
@@ -244,7 +463,7 @@
     </div>
 
     <div class="sidebar-footer">
-        <a href="HTML,CSS,JS/1_login_page.html" class="sidebar-item logout" onclick="activateItem(this)">
+        <a href="other/1_login_page.html" class="sidebar-item logout" onclick="activateItem(this)">
             <img src="assets/images/icons/homepage-sidebar-icons/icons8-logout-50.png" alt="Logout" style="height: 30px; width: 30px;">
             <span>Logout</span>
         </a>
@@ -269,7 +488,7 @@
     <!--nav and counts-->
     <div class="position-absolute" id="count-display" style="width: 300px; height: max-content; left:0; right: 0; margin: auto; top: 430px;">
         <div class="position-absolute" id="customernav" style="width: max-content; height: max-content; left: 0; ">
-            <a href="HTML,CSS,JS/5_customer_manage_page.html" style="text-decoration: none; color: inherit;">
+            <a href="other/5_customer_manage_page.html" style="text-decoration: none; color: inherit;">
                 <img src="assets/images/icons/homepage-sidebar-icons/icons8-customer-100.png" alt="customer-icon">
             </a>
             <h1 class=" text-center fw-semibold" style="font-size: 16px; width: max-content; height: max-content; margin-left: -10px;">Customer Count:</h1>
@@ -277,7 +496,7 @@
         </div>
 
         <div class="position-absolute" id="itemnav" style="width: max-content; height: max-content; right: 0; ">
-            <a href="HTML,CSS,JS/6_item_manage_page.html" style="text-decoration: none; color: inherit;">
+            <a href="other/6_item_manage_page.html" style="text-decoration: none; color: inherit;">
                 <img src="assets/images/icons/homepage-sidebar-icons/icons8-box-100.png" alt="customer-icon">
             </a>
             <h1 class=" text-center fw-semibold" style="font-size: 16px;">Item Count:</h1>
@@ -289,7 +508,7 @@
 <!-- Customer Page Content -->
 <div id="customer-page">
     <!-- Customer Page Content -->
-    <div class="content position-relative p-4" id="customer-content">
+    <div class="container position-relative p-4" >
 
         <!-- Header -->
         <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Customer Manage</h1>
@@ -415,7 +634,7 @@
 <!-- Item Page Content -->
 <div id="item-page">
     <!-- Item Page Content -->
-    <div class="content position-relative p-4" id="item-content">
+    <div class="container position-relative p-4" >
 
         <!-- Header -->
         <h1 class="text-center fw-bolder" style="font-size: 50px; margin-top: 20px;">Item Manage</h1>
@@ -822,6 +1041,7 @@
         item_section.style.display="none";
         order_manage_section.style.display="none";
         order_history_section.style.display="none";
+        setActiveSidebarItem();
     });
 
     customer_nav.addEventListener('click', function (){
@@ -830,6 +1050,7 @@
         item_section.style.display="none";
         order_manage_section.style.display="none";
         order_history_section.style.display="none";
+        setActiveSidebarItem();
     });
 
     item_nav.addEventListener('click', function (){
@@ -838,6 +1059,7 @@
         item_section.style.display="block";
         order_manage_section.style.display="none";
         order_history_section.style.display="none";
+        setActiveSidebarItem();
     });
 
     order_nav.addEventListener('click', function (){
@@ -846,6 +1068,7 @@
         item_section.style.display="none";
         order_manage_section.style.display="block";
         order_history_section.style.display="none";
+        setActiveSidebarItem();
     });
 
     order_history_nav.addEventListener('click', function (){
@@ -854,6 +1077,7 @@
         item_section.style.display="none";
         order_manage_section.style.display="none";
         order_history_section.style.display="block";
+        setActiveSidebarItem();
     });
 
     back_to_order_nav.addEventListener('click', function (){
@@ -862,6 +1086,7 @@
         item_section.style.display="none";
         order_manage_section.style.display="block";
         order_history_section.style.display="none";
+        setActiveSidebarItem();
     });
 
 
@@ -876,13 +1101,26 @@
 
 <script>
     function toggleSidebar() {
-        /*const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('expanded');*/
         const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('homepage-content');
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const menuIcon = toggleBtn.querySelector('.menu-icon');
+        const closeIcon = toggleBtn.querySelector('.close-icon');
+        const contentSections = document.querySelectorAll('#homepage-content, #customer-page, #item-page, #order-manage-page, #order-history-page');
 
         sidebar.classList.toggle('expanded');
-        content.classList.toggle('shifted');
+
+        if (sidebar.classList.contains('expanded')) {
+            menuIcon.style.display = 'none';
+            closeIcon.style.display = 'inline';
+        } else {
+            menuIcon.style.display = 'inline';
+            closeIcon.style.display = 'none';
+        }
+
+        // Shift each content section
+        contentSections.forEach(section => {
+            section.classList.toggle('shifted');
+        });
     }
 </script>
 
