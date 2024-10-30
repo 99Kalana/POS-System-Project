@@ -517,10 +517,10 @@
         <form class="mt-5 ">
             <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
                 <!-- Customer ID -->
-                <div class="col-md-3">
+                <!--<div class="col-md-3">
                     <label for="customerId" class="form-label fw-medium" style="font-size: 18px;">Customer ID</label>
                     <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
-                </div>
+                </div>-->
                 <!-- Customer Name -->
                 <div class="col-md-3">
                     <label for="customerName" class="form-label fw-medium" style="font-size: 18px;">Customer Name</label>
@@ -557,10 +557,10 @@
     <!--table-->
     <div class="table position-relative" id="customer-table-content">
 
-        <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1000px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+        <table class="table table-bordered table-striped position-absolute " style="font-size: 18px; width: 1000px; height: 300px; left: 0; right: 0; margin: auto; top: 230px;">
             <thead>
             <tr>
-                <th>Customer ID</th>
+                <!--<th>Customer ID</th>-->
                 <th>Customer Name</th>
                 <th>Customer Address</th>
                 <th>Customer Tel.</th>
@@ -568,65 +568,9 @@
             </tr>
             </thead>
             <tbody id="customerTableBody">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
 
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
             </tbody>
         </table>
-
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-        </table>
-
 
     </div>
 </div>
@@ -643,10 +587,10 @@
         <form class="mt-5 ">
             <div class="row g-3 mb-4 " style="width: 80rem; left: 0; right: 0; margin: auto">
                 <!-- Item ID -->
-                <div class="col-md-3">
+                <!--<div class="col-md-3">
                     <label for="itemId" class="form-label fw-medium" style="font-size: 18px;">Item ID</label>
                     <input type="text" class="form-control" id="itemId" placeholder="Item ID">
-                </div>
+                </div>-->
                 <!-- Item Name -->
                 <div class="col-md-3">
                     <label for="itemName" class="form-label fw-medium" style="font-size: 18px;">Item Name</label>
@@ -677,10 +621,10 @@
 
             <!-- CRUD Buttons -->
             <div class="d-flex justify-content-center mt-4 position-absolute" style=" width:fit-content; height:fit-content; top: 330px; left: 0;right: 0;margin: auto">
-                <button type="button" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
-                <button type="button" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
-                <button type="button" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
-                <button type="button" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
+                <button type="button" id="item_add_btn" class="btn btn-success mx-2" style="font-size: 20px; width: 130px;">Add</button>
+                <button type="button" id="item_update_btn" class="btn btn-warning mx-2" style="font-size: 20px; width: 130px; /*color: white*/">Update</button>
+                <button type="button" id="item_delete_btn" class="btn btn-danger mx-2" style="font-size: 20px; width: 130px;">Delete</button>
+                <button type="button" id="item_clear_btn" class="btn btn-primary mx-2" style="font-size: 20px; width: 130px;">Clear</button>
             </div>
         </form>
     </div>
@@ -690,10 +634,10 @@
     <!--table-->
     <div class="table position-relative" id="item-table-content">
 
-        <table class="table table-bordered border-primary position-absolute " style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
+        <table class="table table-bordered table-striped position-absolute " style="font-size: 18px; width: 1100px; height: 300px; left: 0; right: 0; margin: auto; top: 60px;">
             <thead>
             <tr>
-                <th>Item ID</th>
+                <!--<th>Item ID</th>-->
                 <th>Item Name</th>
                 <th>Item Type</th>
                 <th>Item Price</th>
@@ -701,91 +645,10 @@
                 <th>Item QTY</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tbody id="itemTableBody">
 
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr>
             </tbody>
         </table>
-
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        </tbody>
-        </table>
-
 
     </div>
 </div>
@@ -1013,6 +876,9 @@
 <!--JQuery-->
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 
+<!--Sweet Alert2-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
 
     let homepage_nav = document.getElementById("homepage-nav");
@@ -1125,9 +991,10 @@
 </script>
 
 
-<script src="HTML,CSS,JS/menubar-script.js"></script>
+<script src="POS-System/util/menubar-script.js"></script>
 
-<script src="HTML,CSS,JS/CRUD-Script.js"></script>
+<script type="module" src="POS-System/controller/CustomerController.js"></script>
+<script type="module" src="POS-System/controller/ItemController.js"></script>
 
 
 
