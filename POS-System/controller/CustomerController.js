@@ -5,6 +5,8 @@ import {customer_array} from "../db/database.js";
 
 import {validateCustomerTel, validateCustomerEmail} from "../util/validation.js";
 
+import {populateDropdowns} from "./OrderController.js";
+
 const loadCustomerTable = () => {
     $("#customerTableBody").empty();
 
@@ -63,16 +65,26 @@ $("#customer_add_btn").on("click", function (){
             text: "Invalid Customer Email!"
         });
     }else {
+
+        let customerIdCounter = customer_array.length ? Math.max(...customer_array.map(c => parseInt(c._id.slice(1)))) + 1 : 1;
+        let customerId = `C${customerIdCounter.toString().padStart(3, '0')}`;
+
+
         let customer = new CustomerModel(
-            customer_array.length+1,
+            /*customer_array.length+1,*/
             /*customer_id,*/
+            customerId,
             customer_name,
             customer_address,
             customer_tel,
             customer_email
         );
 
+
+
         customer_array.push(customer);
+
+        populateDropdowns();
 
         //Clean form
         cleanCustomerForm();

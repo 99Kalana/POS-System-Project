@@ -5,6 +5,8 @@ import {item_array} from "../db/database.js";
 
 import {validateItemPrice, validateItemQTY} from "../util/validation.js";
 
+import {populateDropdowns} from "./OrderController.js";
+
 const loadItemTable = () => {
     $("#itemTableBody").empty();
 
@@ -68,8 +70,13 @@ $("#item_add_btn").on("click", function (){
             text: "Invalid Item Quantity!!"
         });
     }else {
+
+        let itemIdCounter = item_array.length ? Math.max(...item_array.map(i => parseInt(i._id.slice(1)))) + 1 : 1;
+        let itemId = `I${itemIdCounter.toString().padStart(3, '0')}`;
+
         let item = new ItemModel(
-            item_array.length+1,
+            /*item_array.length+1,*/
+            itemId,
             item_name,
             item_type,
             item_price,
@@ -78,6 +85,8 @@ $("#item_add_btn").on("click", function (){
         );
 
         item_array.push(item);
+
+        populateDropdowns();
 
         //Clean form
         cleanItemForm()

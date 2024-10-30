@@ -492,7 +492,7 @@
                 <img src="assets/images/icons/homepage-sidebar-icons/icons8-customer-100.png" alt="customer-icon">
             </a>
             <h1 class=" text-center fw-semibold" style="font-size: 16px; width: max-content; height: max-content; margin-left: -10px;">Customer Count:</h1>
-            <label class="count-label position-absolute" id="customercount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+            <label class="count-label position-absolute" id="customercount" style="width: max-content; height: max-content; margin-left: 40px;"> </label>
         </div>
 
         <div class="position-absolute" id="itemnav" style="width: max-content; height: max-content; right: 0; ">
@@ -500,7 +500,7 @@
                 <img src="assets/images/icons/homepage-sidebar-icons/icons8-box-100.png" alt="customer-icon">
             </a>
             <h1 class=" text-center fw-semibold" style="font-size: 16px;">Item Count:</h1>
-            <label class="count-label position-absolute" id="itemcount" style="width: max-content; height: max-content; margin-left: 40px;">10 </label>
+            <label class="count-label position-absolute" id="itemcount" style="width: max-content; height: max-content; margin-left: 40px;"> </label>
         </div>
     </div>
 </div>
@@ -733,31 +733,8 @@
                     <th>Actions</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
-                </tr>
+                <tbody id="orderTableBody">
+
                 </tbody>
             </table>
         </div>
@@ -765,7 +742,7 @@
         <!-- Order Summary and Buttons -->
         <div class=" position-relative">
             <div class="place-an-order position-absolute" style="width: max-content; height: max-content; top: 400px; left: 0; right: 0; margin: auto">
-                <button class="btn btn-success place-order" style="font-size: 20px;">Place an Order!</button>
+                <button class="btn btn-success place-order" id="place-order" style="font-size: 20px;">Place an Order!</button>
             </div>
 
             <div class="order-history position-absolute" style="width: max-content; height: max-content; top: 400px; left: 100px;">
@@ -863,8 +840,9 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="col-12 text-center position-absolute " style="width: fit-content; height: fit-content; top: 230px; left: 0; right: 0; margin: auto;">
-                <button type="reset" class="btn btn-primary">CLEAR</button>
+            <div class="col-12 text-center position-absolute " style=" display:flex; justify-content:space-around; width: 500px; height: fit-content; top: 230px; left: 0; right: 0; margin: auto;">
+                <button type="button" class="btn btn-primary" id="search-order">Search</button>
+                <button type="reset" class="btn btn-primary" id="clear-fields">CLEAR</button>
                 <span class="btn btn-danger nav"  id="order-manage-nav">BACK TO ORDER MANAGE</span>
             </div>
         </form>
@@ -995,6 +973,8 @@
 
 <script type="module" src="POS-System/controller/CustomerController.js"></script>
 <script type="module" src="POS-System/controller/ItemController.js"></script>
+<script type="module" src="POS-System/controller/OrderController.js"></script>
+<script type="module" src="POS-System/controller/HomeController.js"></script>
 
 
 
