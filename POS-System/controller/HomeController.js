@@ -1,6 +1,6 @@
 import {customer_array,item_array} from "../db/database.js";
 
-function updateCounts() {
+export function updateCounts() {
 
     const customerCount = customer_array.length;
     const itemCount = item_array.length;

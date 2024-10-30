@@ -7,6 +7,8 @@ import {validateItemPrice, validateItemQTY} from "../util/validation.js";
 
 import {populateDropdowns} from "./OrderController.js";
 
+import {updateCounts} from "./HomeController.js";
+
 const loadItemTable = () => {
     $("#itemTableBody").empty();
 
@@ -87,6 +89,8 @@ $("#item_add_btn").on("click", function (){
         item_array.push(item);
 
         populateDropdowns();
+
+        updateCounts();
 
         //Clean form
         cleanItemForm()

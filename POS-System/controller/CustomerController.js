@@ -7,6 +7,8 @@ import {validateCustomerTel, validateCustomerEmail} from "../util/validation.js"
 
 import {populateDropdowns} from "./OrderController.js";
 
+import {updateCounts} from "./HomeController.js";
+
 const loadCustomerTable = () => {
     $("#customerTableBody").empty();
 
@@ -85,6 +87,8 @@ $("#customer_add_btn").on("click", function (){
         customer_array.push(customer);
 
         populateDropdowns();
+
+        updateCounts();
 
         //Clean form
         cleanCustomerForm();
